@@ -2,7 +2,7 @@
 
 # Capstone Project: Course Task Tracker
 
-**Student:** Alex<br>
+**Student:** Alex (Student ID: 202384014054)<br>
 **Status:** Planning
 
 ## Project Idea
