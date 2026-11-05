@@ -1,0 +1,22 @@
+# Dependencies and generated output
+node_modules/
+build/
+dist/
+coverage/
+.cache/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+
+# Local editor / agent state and macOS metadata
+.claude/
+.DS_Store
+
+# Runtime logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+!vendor/three/build/
