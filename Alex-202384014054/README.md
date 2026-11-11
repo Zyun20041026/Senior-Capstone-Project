@@ -107,6 +107,18 @@ flowchart LR
   button of the in-game computer showed an "×" and an "Esc" label on top
   of each other. Added my name and student ID to every file I own.
   All 54 tests pass.
+* **Nov 10, 2026 (Week 4):** Small cleanup of text left over from the
+  cancer-drug game this sandbox was copied from.
+  - The page description (`index.html`) still talked about EGFR lung
+    cancer drug development. It now describes the sandbox: pipetting,
+    passage, cell counting, serial dilution and CCK-8 reads with A549.
+  - Removed an unused `.l-cancer` style.
+  - The sources panel (资料来源) opened on the drug tab. It now opens on
+    the cell-line tab, and the filter hint says "A549、CCK-8" instead of a
+    drug name.
+  - Still left: the cell-line tab lists PC-9 entries, and the drug data
+    and the old analysis screen are still in the code. These go in a
+    later, bigger cleanup.
 
 ## Next Steps
 

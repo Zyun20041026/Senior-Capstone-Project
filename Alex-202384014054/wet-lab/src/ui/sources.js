@@ -43,13 +43,13 @@ export function sourcesPanel(app) {
   const m = sourcesModel();
   const all = m.flatMap((g) => g.rows);
   const count = (s) => all.filter((r) => r.status === s).length;
-  const st = { cat: 'drugs', q: '' };
+  const st = { cat: 'cells', q: '' };
   const { body } = openPanel({ title: '资料来源', sub: `游戏里的真实数据共 ${all.length} 条：已核实 ${count('verified')} · 估计值 ${count('estimate')} · 待核实 ${count('pending')}`, w: 1100, y: 60, id: 'sources', modal: true });
   const draw = () => {
     const g = m.find((x) => x.cat === st.cat);
     const rows = g.rows.filter((r) => !st.q || r.name.includes(st.q));
     body.innerHTML = `<div class="src-top"><div class="src-tabs">${m.map((x) => `<button class="chip" data-cat="${x.cat}" aria-pressed="${x.cat === st.cat}">${esc(x.title)}<span>${x.rows.length}</span></button>`).join('')}</div>
-      <input class="src-q" placeholder="按名称筛选，如：吉非替尼、PC-9" value="${esc(st.q)}" data-q>
+      <input class="src-q" placeholder="按名称筛选，如：A549、CCK-8" value="${esc(st.q)}" data-q>
       <p class="src-legend"><i class="src-st verified">已核实</i>有出处，链接可点开<i class="src-st estimate">估计值</i>没有可用的公开数据，写明了依据<i class="src-st pending">待核实</i>还没查到出处</p></div>
       <div class="src-list">${rows.map((r) => `<article class="src-row">
         <header><b>${esc(r.name)}</b><i class="src-st ${r.status}">${esc(r.statusText)}</i></header>
