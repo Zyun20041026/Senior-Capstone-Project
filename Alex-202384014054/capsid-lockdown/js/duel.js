@@ -60,8 +60,8 @@
   };
 
   const UPGRADES = [
-    { id: 'speed', zh: '巨噬细胞爬得更快', en: 'FASTER CRAWL', sub: '爬行速度 +45%' },
-    { id: 'cloud', zh: '抗体云更大', en: 'WIDER CLOUD', sub: '一团盖住的细胞约翻倍，停留 5 → 7 秒' },
+    { id: 'speed', zh: '巨噬细胞爬得更快', en: 'FASTER CRAWL', sub: '爬行速度 +45%', name: 'Faster macrophage', subEn: 'Crawl speed +45%' },
+    { id: 'cloud', zh: '抗体云更大', en: 'WIDER CLOUD', sub: '一团盖住的细胞约翻倍，停留 5 → 7 秒', name: 'Bigger antibody cloud', subEn: 'Each cloud covers about twice as many cells and lasts 7 seconds instead of 5' },
   ];
 
   // bind: seconds per receptor on a plain cell (twice that under mucus). Waves 2 and 3 bind faster than

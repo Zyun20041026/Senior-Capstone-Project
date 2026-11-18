@@ -194,6 +194,6 @@ test('no network, no libraries, no assets: only the files in this folder', () =>
     assert.ok(!/\bfetch\(|XMLHttpRequest|WebSocket|import\s*\(|require\(['"](?!\.)/.test(text.replace(/require\('node:[a-z]+'\)/g, '')), f + ' reaches outside');
   }
   const scripts = Array.from(fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8').matchAll(/<script src="([^"]+)"/g)).map((m) => m[1]);
-  assert.deepStrictEqual(scripts, ['js/core.js', 'js/boards.js', 'js/rules.js', 'js/viruses.js', 'js/levels.js', 'js/duel.js', 'js/render.js', 'js/audio.js', 'js/game.js']);
+  assert.deepStrictEqual(scripts, ['js/i18n.js', 'js/core.js', 'js/boards.js', 'js/rules.js', 'js/viruses.js', 'js/levels.js', 'js/duel.js', 'js/render.js', 'js/audio.js', 'js/game.js']);
   for (const s of scripts) assert.ok(fs.existsSync(path.join(ROOT, s)), s);
 });

@@ -1,10 +1,10 @@
 <!doctype html>
 <!-- Alex 202384014054 -->
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
-<title>衣壳锁定 · Capsid Lockdown</title>
+<title data-zh="衣壳锁定 · Capsid Lockdown">Capsid Lockdown</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="mode-select">
@@ -23,26 +23,27 @@
     </div>
     <div id="side">
       <nav id="controls">
-        <button class="btn go" data-act="help" type="button">玩法 <kbd>?</kbd></button>
-        <button class="btn play-only" data-act="hint" type="button">提示 <kbd>H</kbd></button>
-        <button class="btn play-only" data-act="restart" type="button">重来 <kbd>R</kbd></button>
-        <button class="btn play-only" data-act="dossier" type="button" id="btn-dossier">档案</button>
-        <button class="btn duel-only" data-act="pause" type="button" id="btn-pause">暂停 <kbd>P</kbd></button>
-        <button class="btn play-only duel-only" data-act="select" type="button">毒株 <kbd>ESC</kbd></button>
-        <button class="btn play-only" data-act="focus" type="button" id="foc">聚焦 开 <kbd>V</kbd></button>
-        <button class="btn" data-act="sound" type="button" id="snd">声音 开</button>
+        <button class="btn go" data-act="help" type="button" data-short="Help" data-zh="玩法 &lt;kbd&gt;?&lt;/kbd&gt;">How to play <kbd>?</kbd></button>
+        <button class="btn play-only" data-act="hint" type="button" data-zh="提示 &lt;kbd&gt;H&lt;/kbd&gt;">Hint <kbd>H</kbd></button>
+        <button class="btn play-only" data-act="restart" type="button" data-zh="重来 &lt;kbd&gt;R&lt;/kbd&gt;">Restart <kbd>R</kbd></button>
+        <button class="btn play-only" data-act="dossier" type="button" id="btn-dossier" data-zh="档案">Dossier</button>
+        <button class="btn duel-only" data-act="pause" type="button" id="btn-pause">Pause <kbd>P</kbd></button>
+        <button class="btn play-only duel-only" data-act="select" type="button" data-zh="毒株 &lt;kbd&gt;ESC&lt;/kbd&gt;">Strains <kbd>ESC</kbd></button>
+        <button class="btn play-only" data-act="focus" type="button" id="foc">Focus on <kbd>V</kbd></button>
+        <button class="btn" data-act="sound" type="button" id="snd">Sound on</button>
+        <button class="btn" data-act="lang" type="button" id="lang" data-zh="EN" title="中文 / English">中文</button>
       </nav>
 
       <!-- strain list: the campaign -->
       <section id="campaign" class="strip select-only">
         <div class="stat lead">
           <b><span id="n-load">0</span><span class="of" id="load-unit"> log</span></b>
-          <span>VIRAL LOAD<i>病毒载量 · 虚构</i></span>
+          <span>VIRAL LOAD<i data-zh="病毒载量 · 虚构">made up</i></span>
           <div id="loadbar"><i></i></div>
         </div>
-        <div class="stat"><b id="n-clear"></b><span>LOCKED<i>已锁定</i></span></div>
-        <div class="stat"><b id="n-stars"></b><span>STARS<i>星级</i></span></div>
-        <div class="stat"><b id="n-dossier"></b><span>DOSSIERS<i>档案</i></span></div>
+        <div class="stat"><b id="n-clear"></b><span>LOCKED<i data-zh="已锁定"></i></span></div>
+        <div class="stat"><b id="n-stars"></b><span>STARS<i data-zh="星级"></i></span></div>
+        <div class="stat"><b id="n-dossier"></b><span>DOSSIERS<i data-zh="档案"></i></span></div>
         <button id="start" class="btn go" type="button"></button>
       </section>
 
@@ -50,28 +51,28 @@
       <section id="stats" class="strip play-only">
         <div class="stat lead">
           <b><span id="n-lock">0</span><span class="of"> of <span id="n-safe">0</span></span></b>
-          <span>LOCKED<i>已锁住的正常蛋白</i></span>
+          <span>LOCKED<i data-zh="已锁住的正常蛋白">normal proteins</i></span>
         </div>
-        <div class="stat"><b><span id="n-left">0</span> of <span id="n-total">0</span></b><span>RESISTANT LEFT<i>未标记的耐药蛋白</i></span></div>
-        <div class="stat"><b id="pips"></b><span>MISSES<i>失误</i></span></div>
-        <div class="stat wide"><b id="iso"></b><span>STRAIN<i>毒株</i></span></div>
+        <div class="stat"><b><span id="n-left">0</span> of <span id="n-total">0</span></b><span>RESISTANT LEFT<i data-zh="未标记的耐药蛋白">not flagged</i></span></div>
+        <div class="stat"><b id="pips"></b><span>MISSES<i data-zh="失误"></i></span></div>
+        <div class="stat wide"><b id="iso"></b><span>STRAIN<i data-zh="毒株"></i></span></div>
       </section>
       <div id="verdict" class="play-only"></div>
       <div id="after" class="play-only">
         <button id="next" class="btn go" type="button"></button>
-        <button id="again" class="btn" type="button">再来一局 <kbd>R</kbd></button>
+        <button id="again" class="btn" type="button" data-zh="再来一局 &lt;kbd&gt;R&lt;/kbd&gt;">Play again <kbd>R</kbd></button>
       </div>
 
       <!-- duel: numbers -->
       <section id="dstats" class="strip duel-only">
         <div class="stat lead" id="d-lossbox">
           <b><span id="d-loss">0</span><span class="of"> of <span id="d-max">8</span></span></b>
-          <span>CELLS LOST<i>破裂的细胞 · 8 个就输</i></span>
+          <span>CELLS LOST<i data-zh="破裂的细胞 · 8 个就输">8 and you lose</i></span>
           <div id="d-pips"></div>
         </div>
-        <div class="stat"><b id="d-wave"></b><span>WAVE<i>波次</i></span></div>
-        <div class="stat gold" id="d-ptsbox"><b id="d-pts">0</b><span>LIGHT<i>光点</i></span></div>
-        <div class="stat wide"><b id="d-best"></b><span>BEST<i>最好成绩</i></span></div>
+        <div class="stat"><b id="d-wave"></b><span>WAVE<i data-zh="波次"></i></span></div>
+        <div class="stat gold" id="d-ptsbox"><b id="d-pts">0</b><span>LIGHT<i data-zh="光点"></i></span></div>
+        <div class="stat wide"><b id="d-best"></b><span>BEST<i data-zh="最好成绩"></i></span></div>
       </section>
     </div>
   </header>
@@ -81,15 +82,15 @@
   <nav id="pages" class="select-only" hidden></nav>
 
   <!-- what a click does -->
-  <div id="tool" class="play-only" role="group" aria-label="点击动作">
-    <button type="button" data-tool="dose" class="on"><b>下药</b><span>DOSE</span></button>
-    <button type="button" data-tool="flag"><b>标记</b><span>FLAG · F</span></button>
+  <div id="tool" class="play-only" role="group" aria-label="What a click does" data-zh-label="点击动作">
+    <button type="button" data-tool="dose" class="on"><b data-zh="下药">Dose</b><span data-zh="DOSE">LOCK IT</span></button>
+    <button type="button" data-tool="flag"><b data-zh="标记">Flag</b><span data-zh="FLAG · F">MARK IT · F</span></button>
   </div>
 
   <!-- duel: what the player has -->
   <div id="tray" class="duel-only" aria-live="polite">
-    <div class="slot mac"><b>巨噬细胞</b><span>MACROPHAGE · 拖着走</span></div>
-    <button type="button" class="slot" id="d-cloud" aria-pressed="false"><b>抗体云</b><span id="d-cloud-sub">第二波解锁</span></button>
+    <div class="slot mac"><b data-zh="巨噬细胞">Macrophage</b><span data-zh="MACROPHAGE · 拖着走">DRAG TO MOVE</span></div>
+    <button type="button" class="slot" id="d-cloud" aria-pressed="false"><b data-zh="抗体云">Antibody cloud</b><span id="d-cloud-sub">UNLOCKS IN WAVE 2</span></button>
   </div>
 
   <!-- duel: wave banner -->
@@ -116,7 +117,7 @@
   </div>
 
   <!-- shown only while the clump is zoomed: tap to fit it again -->
-  <button id="zoom" class="play-only duel-only" type="button" hidden aria-label="缩放复原"><b id="zoom-lbl">1.0×</b><span>复原</span></button>
+  <button id="zoom" class="play-only duel-only" type="button" hidden aria-label="Reset zoom" data-zh-label="缩放复原"><b id="zoom-lbl">1.0×</b><span data-zh="复原">Reset</span></button>
 
   <div id="toast"></div>
 </div>
@@ -130,6 +131,7 @@
   <div id="card-actions"></div>
 </section>
 
+<script src="js/i18n.js"></script>
 <script src="js/core.js"></script>
 <script src="js/boards.js"></script>
 <script src="js/rules.js"></script>

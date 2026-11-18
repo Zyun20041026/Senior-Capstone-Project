@@ -298,6 +298,16 @@ body.card-open #scale { visibility: hidden; }
   #card dl { margin: 8px 0; font-size: 12px; }
   #card dt, #card dd { padding: .32em 0; }
   body.card-open #tool, body.card-open #tray, body.card-open #controls, body.card-open #panel { visibility: hidden; }
+  /* English on a phone: the words are longer than the Chinese ones */
+  #controls { overflow-x: auto; scrollbar-width: none; }
+  #controls::-webkit-scrollbar { display: none; }
+  #controls .btn { flex: none; }
+  html[lang="en"] body.mode-select #title { max-width: calc(100% - 180px); }
+  html[lang="en"] #controls .btn { letter-spacing: 0; padding: .6em .3em; }
+  html[lang="en"] #controls .btn[data-short] { font-size: 0; }
+  html[lang="en"] #controls .btn[data-short]::before { content: attr(data-short); font-size: 12px; }
+  html[lang="en"] .stat > span { font-size: 10px; letter-spacing: .04em; }
+  html[lang="en"] .stat > span i { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   #panel, #card { animation: none; }
