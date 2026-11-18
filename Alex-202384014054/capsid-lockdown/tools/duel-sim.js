@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// Alex 202384014054
 /*
  * 交锋 simulator: plays many seeded rounds of 守住这团细胞 with reference bots
  * and prints win rate, losses and stars. Node built-ins only.

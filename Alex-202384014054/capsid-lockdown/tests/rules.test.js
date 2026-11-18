@@ -1,3 +1,4 @@
+// Alex 202384014054
 /* The rules: dosing, readings, spreading, flags, mistakes, winning, stars. */
 'use strict';
 const test = require('node:test');

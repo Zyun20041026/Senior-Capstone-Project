@@ -1,3 +1,4 @@
+// Alex 202384014054
 /* The solver: every deduction is checked against brute force, and hints and
  * mistake explanations are checked against the readings they point at. */
 'use strict';

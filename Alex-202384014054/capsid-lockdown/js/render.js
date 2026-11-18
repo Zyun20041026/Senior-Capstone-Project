@@ -1,3 +1,4 @@
+// Alex 202384014054
 /*
  * Capsid Lockdown — drawing.
  * Three stacked canvases:
@@ -17,7 +18,7 @@
   const PERSP = 0.14;      // weak perspective, relative to the model's size
   const LIGHT = norm([-0.5, 0.6, 0.62]);
   const MINT = [112, 214, 164], PINK = [201, 170, 181], STEEL = [150, 172, 208], DUSK = [118, 106, 124], HOT = [228, 124, 94], GOLD = [236, 200, 110];
-  // one colour per protein chain (codes 1..7), after reference/4: rose, sage, ice, blush, periwinkle, and two more for
+  // one colour per protein chain (codes 1..7), after the style reference in CREDITS.md: rose, sage, ice, blush, periwinkle, and two more for
   // the strains with many kinds of protein: lilac, sand
   const CHAIN = [[206, 122, 148], [124, 170, 136], [204, 226, 242], [242, 224, 232], [128, 158, 212], [172, 150, 204], [226, 200, 166]];
   const NUM = ['', '#a9c6f3', '#e8d48b', '#f2a27e', '#ee86a6', '#c8a4f4', '#ffffff', '#ffffff', '#ffffff', '#ffffff'];
@@ -156,7 +157,7 @@ uniform float u_grain;
 uniform float u_aa;
 uniform float u_fuse;              // 1: the balls fuse into lobes, so each shows little shading of its own
 uniform float u_toon;              // 1: drawn plainly, a lit face and a shadow with the stipple along the turn
-uniform float u_chain;             // 1: coloured by chain, after reference/4: a flat lit face and a shadow that thins into dots
+uniform float u_chain;             // 1: coloured by chain, after the style reference in CREDITS.md: a flat lit face and a shadow that thins into dots
 const vec3 L = vec3(${LIGHT.map((x) => x.toFixed(4)).join(',')});
 float hash(vec2 p, float seed) { return fract(sin(dot(p, vec2(127.1, 311.7)) + seed * 74.7) * 43758.5453); }
 void main() {
@@ -859,7 +860,7 @@ void main() {
       const toned = [];   // [index of a ball, its height]: arches are coloured by height once every ball is placed
       let top = dome;
       // The 交锋's tissue, in the noro 'chains' style: each kind of cell carries its own parts, a few large
-      // fused shapes in one pastel each (reference/4), never a field of small balls.
+      // fused shapes in one pastel each (style reference: CREDITS.md), never a field of small balls.
       //   plain (absorptive) cell  three soft rose ridges across the top, the brush border drawn as
       //                            cushions rather than hairs, and three muted receptor knobs on them
       //   goblet cell              an ice-blue cup round the border holding one big glossy drop of
