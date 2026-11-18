@@ -1,132 +1,86 @@
 <!-- Alex 202384014054 -->
 
-# Capstone Project: Wet Lab Sandbox
+# Capstone Project: Capsid Lockdown
 
 **Student:** Alex (Student ID: 202384014054)<br>
-**Status:** Week 3 — the sandbox runs on its own
+**Project:** [`capsid-lockdown/`](capsid-lockdown/), version v0.1<br>
+**AI use:** I used Claude Code (Claude Fable 5.2 and Claude Opus 5.5). Details in [AI_USE.md](AI_USE.md).
 
 ## Project Idea
 
-A browser game that lets anyone walk into a virtual biology lab and use
-real lab equipment: a biosafety cabinet, pipettes, a centrifuge, a
-microscope, an incubator and a plate reader. There are no goals and no
-score. You can try the things a real cell culture lab does, and the
-equipment behaves the way the real equipment does.
+Capsid Lockdown is a puzzle game in the browser: Minesweeper played on the
+outer shell (the capsid) of a virus. There are twelve real kinds of virus,
+from norovirus to herpes simplex virus, and each shell is made of 32 to 144
+protein blocks. A few blocks are resistant to the drug; those are the mines.
+The player locks the normal proteins, reads the numbers and flags the
+resistant ones.
 
-My long-term goal is a game that is good enough to publish on a public
-platform. For this course I am building it step by step and adding
-visible changes every week.
+Every level can be solved by logic alone. A solver in the code proves this
+for each layout, and the hints use the same solver to explain each step.
 
-## Where It Came From
+There is also an experimental real-time mode, "Hold the Cell Cluster",
+where the player is the immune system and defends 32 cells against three
+waves of norovirus.
 
-This project is based on a personal project I started on Nov 1, 2026: a
-lab game built around cancer drug research. For this course I copied it
-and turned it into a separate, simpler sandbox. The original game is not
-part of this repository and I am not changing it.
-
-In Week 2 I worked on a different idea, a Course Task Tracker. Those files
-are still in `python/` and `html/` as my Week 2 record.
-
-## How I Use AI
-
-I use AI coding tools in this project, and I want to be clear about who
-does what:
-
-* I decide the direction and the rules of the game.
-* I play-test it and say what needs to change.
-* I check the lab steps and equipment against real sources.
-* I wrote or changed some of the code myself.
-* Most of the code was written by AI coding tools, following my
-  instructions.
+Full rules, controls and file list: [capsid-lockdown/README.md](capsid-lockdown/README.md).
 
 ## How to Run It
 
-The game needs a small local web server (the browser will not load the
-modules from a plain file).
+You need Node.js 22 or newer and Chrome.
 
 ```bash
-cd wet-lab
-python3 -m http.server 8670
+cd capsid-lockdown
+node tools/serve.js
 ```
 
-Then open `http://localhost:8670` in Chrome. A keyboard and a mouse or
-trackpad are needed. Press **F** for full screen.
+Then open <http://127.0.0.1:8765/> in Chrome. The game starts in English;
+the **中文** button switches to Chinese.
 
-To run the automated tests (Node.js 18 or newer):
+To run the tests:
 
 ```bash
-cd wet-lab
-npm test
+cd capsid-lockdown
+node --test tests/*.test.js
 ```
+
+## What Is in This Folder
+
+| Folder or file | What it is |
+| --- | --- |
+| `capsid-lockdown/` | my course project (start from `capsid-lockdown/index.html`, see above) |
+| `AI_USE.md` | which AI tools and models I used, and for what |
+| `python/task_tracker.py` | Week 2 practice: a small Course Task Tracker in Python, v0.1 |
+| `html/Alex.html` | Week 2 practice: a short page about me and my project |
 
 ## How the Game Is Built
 
 ```mermaid
 flowchart LR
-    T[Title screen] --> S[Sandbox lab]
-    S --> V[View: 3D scene with three.js]
-    S --> G[Game rules: actions, world, lab safety]
-    G --> M[Simulation: liquids, pipettes, cells, plates]
-    M --> D[Data: real values with sources]
+    V[viruses.js<br>12 viruses] --> B[boards.js<br>cut each shell into blocks]
+    B --> GEN[tools/generate.js<br>+ solver in rules.js]
+    GEN --> L[levels.js<br>60 proven layouts]
+    L --> G[game.js<br>screens, input, hints]
+    G --> R[render.js<br>WebGL + Canvas]
+    G --> A[audio.js<br>Web Audio]
 ```
-
-* `wet-lab/src/view/` and `wet-lab/src/view3d/` draw the lab.
-* `wet-lab/src/game/` holds what the player can do and the state of the lab.
-* `wet-lab/src/sim/` simulates liquids, pipettes, cell growth and the plate reader.
-* `wet-lab/src/data/` holds real values (for example cell doubling times), each with its source.
-* `wet-lab/vendor/three/` is the three.js library (MIT License), not my code.
-
-## Stations in the Sandbox
-
-| Key | Station | What is there |
-|---|---|---|
-| 1 | Biosafety cabinet | pipettes, tips, tubes, plates, aspirator |
-| 2 | Bench | balance, microscope, water bath, vortex mixer, centrifuge |
-| 3 | Incubator | two flasks of A549 cells |
-| 4 | Fridge | culture medium, PBS, trypsin, CCK-8 |
-| 5 | Plate reader | plate reader and a computer for the data |
-
-## Roadmap
-
-1. **Separate the sandbox** from the original game (Week 3, done).
-2. **Make it look real:** lighting and materials, the main instruments,
-   close-up shots during experiments, and what you see under the
-   microscope. Add an English/Chinese language switch.
-3. **Add more content:** more instruments, consumables, reagents and cell types.
-4. **Add new ways to play**, such as a lab manual with guided experiments.
 
 ## Progress Log
 
 * **Nov 4, 2026 (Week 2):** Set up the project folder and wrote a README in
   class. Wrote a first Python version of a Course Task Tracker.
-* **Nov 5, 2026 (Week 3):** Switched my project to the Wet Lab Sandbox.
-  Copied my earlier lab game and removed everything about cancer and
-  drugs: the patient cases, CT scans, gene sequencing, the automated
-  workstation and all levels. The game now opens straight into the free
-  lab, with A549 cells in the incubator. Fixed a bug where the close
-  button of the in-game computer showed an "×" and an "Esc" label on top
-  of each other. Added my name and student ID to every file I own.
-  All 54 tests pass.
+* **Nov 5, 2026 (Week 3):** Switched my project to a Wet Lab Sandbox, a
+  3D lab game copied from an earlier personal project, with the cancer and
+  drug content removed. Added my name and student ID to every file I own.
 * **Nov 10, 2026 (Week 4):** Small cleanup of text left over from the
-  cancer-drug game this sandbox was copied from.
-  - The page description (`index.html`) still talked about EGFR lung
-    cancer drug development. It now describes the sandbox: pipetting,
-    passage, cell counting, serial dilution and CCK-8 reads with A549.
-  - Removed an unused `.l-cancer` style.
-  - The sources panel (资料来源) opened on the drug tab. It now opens on
-    the cell-line tab, and the filter hint says "A549、CCK-8" instead of a
-    drug name.
-  - Still left: the cell-line tab lists PC-9 entries, and the drug data
-    and the old analysis screen are still in the code. These go in a
-    later, bigger cleanup.
-
-## Next Steps
-
-* Rework the lighting and the materials (glass, metal, plastic, liquids).
-* Add the English/Chinese language switch, starting with the title screen and menus.
-* Replace the hover box around objects, which is too loud and not precise enough.
-
-## Open Questions
-
-* What should the game be called when it is published?
-* Which instruments should be made realistic first?
+  cancer-drug game in the wet lab sandbox.
+* **Nov 17, 2026:** Switched my project to Capsid Lockdown and removed the
+  wet lab sandbox (it is still in the Git history). Changes based on the
+  teacher's feedback in class:
+  - Renamed `python/Alex.py` to `python/task_tracker.py`, so the file is
+    named after the program, and marked it v0.1.
+  - Wrote `AI_USE.md`, which names the AI tools and models I used and what
+    they did.
+  - Put a README with "How to Run It" inside the project folder itself.
+  - Added an English / Chinese switch. The game starts in English.
+  - Added `CREDITS.md` for the ideas I borrowed.
+  - Added my name and student ID to every file.
