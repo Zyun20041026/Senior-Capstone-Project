@@ -1,5 +1,5 @@
 # Alex 202384014054
-# Course Task Tracker - first version
+# Course Task Tracker - v0.1 (first version)
 # The assignments below are sample data for testing.
 # Saving to a JSON file is the next step.
 
