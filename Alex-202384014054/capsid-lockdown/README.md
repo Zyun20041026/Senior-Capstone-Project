@@ -23,24 +23,56 @@ Audio, with no libraries and no install step. It starts in English; the
 
 ## How to Run It
 
-You need [Node.js](https://nodejs.org/) 22 or newer and Chrome.
+There are three ways. To play, you do not need to install anything.
+Chrome is recommended, because the game was tested in Chrome.
+
+### 1. Play online
+
+Open
+<https://zyun20041026.github.io/Senior-Capstone-Project/Alex-202384014054/capsid-lockdown/>.
+It is hosted with GitHub Pages and shows the version on the `main` branch
+of my repository, so it updates each time I push.
+
+### 2. Download it and open the file
+
+1. On the GitHub page of the repository, click **Code → Download ZIP** and
+   unzip it. (Or clone it:
+   `git clone https://github.com/Zyun20041026/Senior-Capstone-Project.git`)
+2. Open the folder `Alex-202384014054/capsid-lockdown/`.
+3. Double-click `index.html`. The game opens in your browser.
+
+### 3. Use the local server (needs Node.js)
+
+You need [Node.js](https://nodejs.org/) 22 or newer. Open a terminal in the
+top folder of the repository (the folder you unzipped or cloned) and run:
 
 ```bash
-cd capsid-lockdown
-node tools/serve.js
+node Alex-202384014054/capsid-lockdown/tools/serve.js
 ```
 
-Then open <http://127.0.0.1:8765/> in Chrome. Stop the server with
-`Ctrl + C`.
+When it prints `Capsid Lockdown is running.`, open
+<http://127.0.0.1:8765/> in Chrome. Stop the server with `Ctrl + C`.
 
-`index.html` is the page to start from. Useful links:
+- If you are already inside the `capsid-lockdown` folder,
+  `node tools/serve.js` does the same.
+- If port 8765 is already in use, put another port number at the end, for
+  example `node tools/serve.js 9000`, and open <http://127.0.0.1:9000/>.
 
-| Link | What it opens |
+The server is useful while changing the code: it turns off caching, so the
+browser always loads the newest files.
+
+### Useful Addresses
+
+These work with all three ways. Add one to the end of the address:
+
+| Add | What it opens |
 | --- | --- |
-| <http://127.0.0.1:8765/> | the main game (list of twelve viruses) |
-| <http://127.0.0.1:8765/?level=6> | straight into virus 6 |
-| <http://127.0.0.1:8765/?duel=noro> | the experimental real-time mode |
-| <http://127.0.0.1:8765/?lang=zh> | the game in Chinese |
+| `?level=6` | straight into virus 6 |
+| `?duel=noro` | the experimental real-time mode |
+| `?lang=zh` | the game in Chinese |
+
+For example:
+<https://zyun20041026.github.io/Senior-Capstone-Project/Alex-202384014054/capsid-lockdown/?level=6>
 
 ## How to Play
 
@@ -178,10 +210,16 @@ real-time mode. The language choice is saved under `capsid-lang`.
 
 ## Tests
 
+The tests need [Node.js](https://nodejs.org/) 22 or newer. From the top
+folder of the repository:
+
 ```bash
-node --test tests/*.test.js
-node tools/validate.js
+node --test Alex-202384014054/capsid-lockdown/tests/*.test.js
+node Alex-202384014054/capsid-lockdown/tools/validate.js
 ```
+
+Inside the `capsid-lockdown` folder, `node --test tests/*.test.js` and
+`node tools/validate.js` do the same.
 
 The tests cover the rules, the solver (checked against brute force on small
 boards), all 60 layouts, the hints, the dossier text, the real-time mode

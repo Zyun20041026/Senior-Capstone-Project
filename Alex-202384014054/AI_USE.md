@@ -10,7 +10,7 @@ models I used and what each one did, so you do not have to guess.
 | Tool | Model | What it did |
 | --- | --- | --- |
 | Claude Code (Anthropic) | Claude Fable 5.2 | Wrote almost all of the Capsid Lockdown code, tests and tools, following my instructions, before the game was moved into this repository. |
-| Claude Code (Anthropic) | Claude Opus 5.5 | Moved Capsid Lockdown into this repository (Nov 17, 2026): the English / Chinese switch, the English README files, `CREDITS.md`, this file, and the name and student ID comments. It also helped write my earlier work here: the Week 2 files in `python/` and `html/` and the wet lab sandbox (Weeks 3–4, now only in the Git history). |
+| Claude Code (Anthropic) | Claude Opus 5.5 | Moved Capsid Lockdown into this repository (Nov 17, 2026): the English / Chinese switch, the English README files, `CREDITS.md`, this file, and the name and student ID comments. It also helped write my earlier work here: the Week 2 files in `python/` and `html/` and the wet lab sandbox (Weeks 3–4, now only in the Git history). On Nov 24, 2026 it set up the GitHub Pages link, rewrote the start instructions in the README files and improved `tools/serve.js`. |
 
 Commits that the AI helped with end with a `Co-Authored-By: Claude` line,
 so the Git history shows them too.

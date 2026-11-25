@@ -26,22 +26,32 @@ Full rules, controls and file list: [capsid-lockdown/README.md](capsid-lockdown/
 
 ## How to Run It
 
-You need Node.js 22 or newer and Chrome.
+**Play online** (nothing to download):
+<https://zyun20041026.github.io/Senior-Capstone-Project/Alex-202384014054/capsid-lockdown/>
+
+**After downloading:** on the GitHub page of the repository, click
+**Code → Download ZIP** and unzip it. Open the folder
+`Alex-202384014054/capsid-lockdown/` and double-click `index.html`. Nothing
+needs to be installed.
+
+**With the local server** (needs Node.js 22 or newer). From the top folder
+of the repository, run:
 
 ```bash
-cd capsid-lockdown
-node tools/serve.js
+node Alex-202384014054/capsid-lockdown/tools/serve.js
 ```
 
-Then open <http://127.0.0.1:8765/> in Chrome. The game starts in English;
-the **中文** button switches to Chinese.
+Then open <http://127.0.0.1:8765/> in Chrome. Stop it with `Ctrl + C`.
 
-To run the tests:
+**Tests** (also need Node.js). From the top folder of the repository, run:
 
 ```bash
-cd capsid-lockdown
-node --test tests/*.test.js
+node --test Alex-202384014054/capsid-lockdown/tests/*.test.js
 ```
+
+Chrome is recommended. The game starts in English; the **中文** button
+switches to Chinese. More detail, such as using another port:
+[capsid-lockdown/README.md](capsid-lockdown/README.md#how-to-run-it).
 
 ## What Is in This Folder
 
@@ -112,3 +122,15 @@ flowchart LR
   and I went through the main game and the duel mode in the browser in both
   languages. Known issue: in English on a small phone screen, the bottom
   button bar is wider than the screen and scrolls sideways.
+* **Nov 24, 2026:** Made the game easier to start for someone who gets it
+  from GitHub:
+  - The game is now online with GitHub Pages:
+    <https://zyun20041026.github.io/Senior-Capstone-Project/Alex-202384014054/capsid-lockdown/>
+  - Both README files now explain three ways to start it: the online link,
+    Download ZIP and double-click `index.html` (no install), and the local
+    server. The server and test commands now work from the top folder of
+    the repository, so there is no `cd` step to get wrong.
+  - `tools/serve.js` now prints the address to open and how to stop it,
+    says what to do when port 8765 is already in use, and accepts another
+    port number (`node tools/serve.js 9000`). It also no longer crashes on a
+    broken address, and it only serves files inside the game folder.
